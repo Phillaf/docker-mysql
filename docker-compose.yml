@@ -12,12 +12,12 @@ services:
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
+    ports:
+      - ${PHPMYADMIN_PORT_MAPPING}
     links:
       - mysql:db
-    environment:
-      VIRTUAL_HOST: phpmyadmin
 
 networks:
   default:
     external:
-      name: myapp
+      name: ${APP_NETWORK}
